@@ -8,9 +8,15 @@ struct FitnessTabView: View {
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
+        
         appearance.stackedLayoutAppearance.selected.iconColor = .green
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.green]
+
+        appearance.stackedLayoutAppearance.normal.iconColor = .gray
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.gray]
+        
         UITabBar.appearance().scrollEdgeAppearance = appearance
+        UITabBar.appearance().standardAppearance = appearance
     }
     
     var body: some View {
@@ -19,11 +25,13 @@ struct FitnessTabView: View {
                 .tag("Home")
                 .tabItem {
                     Image(systemName: "house")
+                    Text("Home")
                 }
             HistoricDataView()
                 .tag("Historic Data")
                 .tabItem {
                     Image(systemName: "chart.bar")
+                    Text("Charts")
                 }
         }
     }
