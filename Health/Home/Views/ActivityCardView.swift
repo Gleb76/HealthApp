@@ -2,6 +2,8 @@
 import SwiftUI
 
 
+import SwiftUI
+
 struct ActivityCardView: View {
     
     @State var activity: Activity

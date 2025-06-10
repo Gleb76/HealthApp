@@ -27,7 +27,7 @@ struct FitnessTabView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            HistoricDataView()
+            ChartsView()
                 .tag("Historic Data")
                 .tabItem {
                     Image(systemName: "chart.bar")

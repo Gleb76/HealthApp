@@ -2,7 +2,6 @@
 import SwiftUI
 
 
-
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     
@@ -35,7 +34,7 @@ struct HomeView: View {
                                     .bold()
                                     .foregroundColor(.red)
                                 
-                                Text("\(viewModel.active) mins")
+                                Text("\(viewModel.activeMinutes) mins")
                                     .bold()
                             }
                             .padding(.bottom)
@@ -46,7 +45,7 @@ struct HomeView: View {
                                     .bold()
                                     .foregroundColor(.red)
                                 
-                                Text("\(viewModel.stand) hours")
+                                Text("\(viewModel.standHours) hours")
                                     .bold()
                             }
                         }
@@ -55,7 +54,7 @@ struct HomeView: View {
                         
                         ZStack {
                             ProgressCircleView(progress: $viewModel.calories, goal: 600, color: .red)
-                            ProgressCircleView(progress: $viewModel.active, goal: 60, color: .green)
+                            ProgressCircleView(progress: $viewModel.activeMinutes, goal: 60, color: .green)
                                 .padding(.all, 20)
                             ProgressCircleView(progress: $viewModel.calories, goal: 12, color: .blue)
                                 .padding(.all, 40)
@@ -85,7 +84,7 @@ struct HomeView: View {
                     .padding(.horizontal)
                     
                     LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)) {
-                        ForEach(viewModel.mockActivities, id: \.id) { activity in
+                        ForEach(viewModel.activities, id: \.id) { activity in
                             ActivityCardView(activity: activity)
                         }
                     }
@@ -111,7 +110,7 @@ struct HomeView: View {
                     .padding(.top)
                     
                     LazyVStack {
-                        ForEach(viewModel.mockWorkouts, id: \.id) { workout in
+                        ForEach(viewModel.workouts, id: \.id) { workout in
                             WorkoutCardView(workout: workout)
                         }
                     }
